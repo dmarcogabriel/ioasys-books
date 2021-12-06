@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/Login should match snapshot 1`] = `
+<View
+  accessibilityIgnoresInvertColors={true}
+  style={
+    Array [
+      Object {
+        "height": "100%",
+        "justifyContent": "center",
+        "paddingBottom": 0,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 0,
+      },
+    ]
+  }
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "testUri": "../../../src/pages/Login/assets/background.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    noMargin={false}
+    noPadding={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "marginBottom": 48,
+          "paddingTop": 0,
+        },
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/components/HeaderTitle/assets/logo.png",
+        }
+      }
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    />
+    <Text
+      color="light"
+      style={
+        Array [
+          Object {
+            "color": "#ffffff",
+            "fontSize": 28,
+            "marginLeft": 16,
+          },
+        ]
+      }
+    >
+      Books
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#00000052",
+          "borderRadius": 4,
+          "marginBottom": 8,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 8,
+          "paddingBottom": 8,
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "paddingTop": 8,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "opacity": 0.5,
+            },
+          ]
+        }
+      >
+        E-mail
+      </Text>
+      <TextInput
+        onChangeText={[Function]}
+        returnKeyType="next"
+        secureTextEntry={false}
+        style={
+          Object {
+            "fontSize": 16,
+          }
+        }
+        testID="emailInput"
+        value=""
+      />
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#00000052",
+          "borderRadius": 4,
+          "marginBottom": 8,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 8,
+          "paddingBottom": 8,
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "paddingTop": 8,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "opacity": 0.5,
+            },
+          ]
+        }
+      >
+        Senha
+      </Text>
+      <TextInput
+        onChangeText={[Function]}
+        onEndEditing={[Function]}
+        returnKeyType="default"
+        secureTextEntry={true}
+        style={
+          Object {
+            "fontSize": 16,
+          }
+        }
+        testID="passwordInput"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "height": "100%",
+            "justifyContent": "center",
+            "paddingBottom": 16,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 16,
+            "position": "absolute",
+            "right": 0,
+          },
+        ]
+      }
+      testID="textInputRightComponent"
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderRadius": 20,
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingBottom": 8,
+            "paddingLeft": 20,
+            "paddingRight": 20,
+            "paddingTop": 8,
+          }
+        }
+        testID="loginButton"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#B22E6F",
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          Entrar
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -1,3 +1,3 @@
-import {Text} from 'react-native';
+import {Text, View as Card} from 'react-native';
 
-export {Text};
+export {Text, Card};

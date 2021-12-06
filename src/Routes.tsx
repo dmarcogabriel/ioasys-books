@@ -8,11 +8,11 @@ import {Books, Login, BookDetails} from './pages';
 const {Navigator, Screen} = createNativeStackNavigator();
 
 export const Routes = () => {
-  const {user} = useUser();
+  const {token} = useUser();
 
   return (
     <Navigator>
-      {!user ? (
+      {!token ? (
         <Screen options={{headerShown: false}} name="Login" component={Login} />
       ) : (
         <>

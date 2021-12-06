@@ -21,3 +21,11 @@ export const getData = async <T>(key: string): Promise<T | string | null> => {
   }
   return null;
 };
+
+export const removeData = async (key: string): Promise<void> => {
+  try {
+    await AsyncStorage.removeItem(key);
+  } catch (error) {
+    console.log(error);
+  }
+};

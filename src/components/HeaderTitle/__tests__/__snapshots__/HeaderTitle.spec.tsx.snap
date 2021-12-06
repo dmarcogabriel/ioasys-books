@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/HeaderTitle should match snapshot 1`] = `
+<View
+  noMargin={false}
+  noPadding={false}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 48,
+        "paddingTop": 40,
+      },
+    ]
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/components/HeaderTitle/assets/logo.png",
+      }
+    }
+    style={
+      Array [
+        Object {},
+      ]
+    }
+  />
+  <Text
+    color="light"
+    style={
+      Array [
+        Object {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "marginLeft": 16,
+        },
+      ]
+    }
+    testID="headerTitle"
+  >
+    Books
+  </Text>
+</View>
+`;

@@ -11,7 +11,7 @@ import styles, {
 } from './styles';
 import {FiltersChips} from './components';
 
-interface FiltersModalProps {
+export interface FiltersModalProps {
   isVisible: boolean;
   onClose: (filters?: any) => void;
 }
@@ -49,24 +49,30 @@ export const FiltersModal = ({
       onBackdropPress={() => handleClose()}>
       <FiltersModalContainer>
         <FiltersModalHeader>
-          <CloseButtonWrapper onPress={() => handleClose()}>
+          <CloseButtonWrapper
+            testID="closeButton"
+            onPress={() => handleClose()}>
             <MIcon name="close" size={24} />
           </CloseButtonWrapper>
         </FiltersModalHeader>
         <FiltersChips
+          testID="Category"
           title="Selecione a categoria"
           options={['Design', 'UX Design', 'UI Design']}
           value={filters.category}
           onChange={handleChange('category')}
         />
         <FiltersChips
+          testID="Year"
           title="Selecione o ano"
           options={['1998', '2000', '2002']}
           value={filters.year}
           onChange={handleChange('year')}
         />
         <FiltersModalFooter>
-          <FilterButton onPress={() => handleClose(filters)}>
+          <FilterButton
+            testID="filterButton"
+            onPress={() => handleClose(filters)}>
             <FilterButtonText>Filtrar</FilterButtonText>
           </FilterButton>
         </FiltersModalFooter>

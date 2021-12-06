@@ -7,17 +7,19 @@ import {
   ChipButtonText,
 } from './styles';
 
-interface FiltersChipsProps {
+export interface FiltersChipsProps {
   title: string;
   options: string[];
   value: string | null;
   onChange: (option: string) => void;
+  testID?: string;
 }
 
 export const FiltersChips = ({
   title,
   options,
   value,
+  testID = '',
   onChange,
 }: FiltersChipsProps): JSX.Element => {
   const isSelected = (option: string): boolean => {
@@ -30,14 +32,17 @@ export const FiltersChips = ({
 
   return (
     <FiltersChipsContainer>
-      <FiltersChipsTitle>{title}</FiltersChipsTitle>
-      <FiltersChipsOptions>
+      <FiltersChipsTitle testID="filtersChipsTitle">{title}</FiltersChipsTitle>
+      <FiltersChipsOptions testID="filtersChipsOptions">
         {options.map((option, i) => (
           <ChipButton
             key={`${i}`}
+            testID={`filtersChipsOptionButton${testID}${i + 1}`}
             isSelected={isSelected(option)}
             onPress={() => handleSelect(option)}>
-            <ChipButtonText isSelected={isSelected(option)}>
+            <ChipButtonText
+              testID={`filtersChipsOptionText${testID}${i + 1}`}
+              isSelected={isSelected(option)}>
               {option}
             </ChipButtonText>
           </ChipButton>

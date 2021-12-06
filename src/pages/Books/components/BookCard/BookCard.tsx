@@ -11,7 +11,7 @@ import {
   BookInfoText,
 } from './styles';
 
-interface BookCardProps {
+export interface BookCardProps {
   book: Book;
   onPress: (book: any) => void;
 }
@@ -20,19 +20,29 @@ export const BookCard = ({book, onPress}: BookCardProps) => {
   const handlePressBook = () => onPress(book);
 
   return (
-    <TouchableWithoutFeedback onPress={handlePressBook}>
+    <TouchableWithoutFeedback
+      testID="bookContainerButton"
+      onPress={handlePressBook}>
       <Card>
         <BookCardContent>
-          <BookCardImage source={{uri: book.imageUrl}} resizeMode="contain" />
+          <BookCardImage
+            testID="bookImage"
+            source={{uri: book.imageUrl}}
+            resizeMode="contain"
+          />
           <View>
-            <BookTitle>{book.title}</BookTitle>
+            <BookTitle testID="bookTitle">{book.title}</BookTitle>
             {book.authors.map((author, i) => (
-              <BookAuthor key={`${i}`}>{author}</BookAuthor>
+              <BookAuthor key={`${i}`} testID={`bookAuthor${i + 1}`}>
+                {author}
+              </BookAuthor>
             ))}
             <BookInfo>
-              <BookInfoText>{`${book.pageCount} Páginas`}</BookInfoText>
-              <BookInfoText>{book.publisher}</BookInfoText>
-              <BookInfoText>{`Publicado em ${book.published}`}</BookInfoText>
+              <BookInfoText testID="bookPageCount">{`${book.pageCount} Páginas`}</BookInfoText>
+              <BookInfoText testID="bookPublisher">
+                {book.publisher}
+              </BookInfoText>
+              <BookInfoText testID="bookPublished">{`Publicado em ${book.published}`}</BookInfoText>
             </BookInfo>
           </View>
         </BookCardContent>

@@ -6,7 +6,7 @@ import {
 } from './styles';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 
-interface SearchInputProps {
+export interface SearchInputProps {
   onSearch: (term: string) => void;
 }
 
@@ -20,12 +20,13 @@ export const SearchInput = ({onSearch}: SearchInputProps): JSX.Element => {
   return (
     <SearchInputContainer>
       <SearchInputStyled
+        testID="searchInput"
         placeholder="Procure um livro"
         value={value}
         onChangeText={handleChange}
         onEndEditing={handleSearch}
       />
-      <SearchInputButton onPress={handleSearch}>
+      <SearchInputButton testID="searchInputButton" onPress={handleSearch}>
         <MIcon name="search" size={24} />
       </SearchInputButton>
     </SearchInputContainer>

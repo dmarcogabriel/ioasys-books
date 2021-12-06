@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Books/components/BookCard should match snapshot 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  testID="bookContainerButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "uri": "test",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "height": 122,
+            "marginRight": 16,
+            "width": 81,
+          },
+        ]
+      }
+      testID="bookImage"
+    />
+    <View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#333333",
+              "fontSize": 14,
+              "fontWeight": "bold",
+            },
+          ]
+        }
+        testID="bookTitle"
+      >
+        Test Book
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#B22E6F",
+              "fontSize": 12,
+            },
+          ]
+        }
+        testID="bookAuthor1"
+      >
+        Author 1
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#B22E6F",
+              "fontSize": 12,
+            },
+          ]
+        }
+        testID="bookAuthor2"
+      >
+        Author 2
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "marginTop": 8,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontSize": 12,
+              },
+            ]
+          }
+          testID="bookPageCount"
+        >
+          123 Páginas
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontSize": 12,
+              },
+            ]
+          }
+          testID="bookPublisher"
+        >
+          Tester
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#999999",
+                "fontSize": 12,
+              },
+            ]
+          }
+          testID="bookPublished"
+        >
+          Publicado em 1992
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

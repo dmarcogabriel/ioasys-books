@@ -109,6 +109,7 @@ export const Books = (): JSX.Element => {
           </TouchableOpacity>
         </SearchSection>
         <FlatList
+          testID="bookList"
           data={books}
           keyExtractor={item => item.id}
           renderItem={({item: book}) => (

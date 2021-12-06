@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Books/components/SearchInput should match snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderColor": "#33333333",
+        "borderRadius": 2,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "width": "90%",
+      },
+    ]
+  }
+>
+  <TextInput
+    onChangeText={[Function]}
+    onEndEditing={[Function]}
+    placeholder="Procure um livro"
+    style={
+      Array [
+        Object {
+          "paddingBottom": 16,
+          "paddingLeft": 8,
+          "paddingRight": 46,
+          "paddingTop": 16,
+          "width": "100%",
+        },
+      ]
+    }
+    testID="searchInput"
+    value=""
+  />
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    nativeID="animatedComponent"
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "marginBottom": 16,
+        "marginLeft": 16,
+        "marginRight": 16,
+        "marginTop": 16,
+        "opacity": 1,
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+    testID="searchInputButton"
+  >
+    <Text>
+      Icon
+    </Text>
+  </View>
+</View>
+`;

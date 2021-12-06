@@ -6,8 +6,10 @@ import {HeaderTitle} from '../../components';
 import BackgroundImage from './assets';
 import {LoginContainer, LoginButton, LoginButtonText} from './styles';
 import {TextInput} from './components';
+import api from '../../services/api';
+import {User} from '../../@types/user.interface';
 
-interface LoginInput {
+export interface LoginInput {
   email: string;
   password: string;
 }
@@ -25,14 +27,15 @@ export const Login = (): JSX.Element => {
       password: string().required(),
     }),
     async onSubmit(formValues) {
-      console.log(formValues);
-      login({
-        name: 'Silas Carvalho',
-        email: 'desafio@ioasys.com.br',
-        birthdate: '2020-07-20',
-        gender: 'M',
-        id: '6017163afaf5de22b804a173',
-      });
+      try {
+        const {data, headers} = await api.post<User>(
+          '/auth/sign-in',
+          formValues,
+        );
+        await login(data, headers.authorization);
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 

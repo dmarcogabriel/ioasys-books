@@ -38,9 +38,17 @@ export const BookDetails = () => {
   return (
     <BookDetailsContainer>
       <StatusBar backgroundColor="#ffffff" />
-      <BookDetailsImage source={{uri: book.imageUrl}} resizeMode="cover" />
-      <BookDetailsTitle>{book.title}</BookDetailsTitle>
-      <BookDetailsAuthors>{book.authors.join(', ')}</BookDetailsAuthors>
+      <BookDetailsImage
+        testID="bookDetailsImage"
+        source={{uri: book.imageUrl}}
+        resizeMode="cover"
+      />
+      <BookDetailsTitle testID="bookDetailsTitle">
+        {book.title}
+      </BookDetailsTitle>
+      <BookDetailsAuthors testID="bookDetailsAuthors">
+        {book.authors.join(', ')}
+      </BookDetailsAuthors>
       <ContentSection>
         <ContentSectionTitle>INFORMAÇÕES</ContentSectionTitle>
         <BookInfo name="Páginas" value={`${book.pageCount} Páginas`} />
@@ -54,7 +62,9 @@ export const BookDetails = () => {
       </ContentSection>
       <ContentSection marginBottom="42px">
         <ContentSectionTitle>RESENHA DA EDITORA</ContentSectionTitle>
-        <ContentSectionReview>{book.description}</ContentSectionReview>
+        <ContentSectionReview testID="bookDetailsReview">
+          {book.description}
+        </ContentSectionReview>
       </ContentSection>
     </BookDetailsContainer>
   );

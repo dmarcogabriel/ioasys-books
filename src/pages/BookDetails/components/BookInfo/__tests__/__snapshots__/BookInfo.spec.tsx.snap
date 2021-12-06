@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Books/components/BookCard should match snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      },
+    ]
+  }
+>
+  <Text
+    isBold={true}
+    style={
+      Array [
+        Object {
+          "color": "#333333",
+          "fontWeight": "bold",
+        },
+      ]
+    }
+    testID="bookInfoName"
+  >
+    Test
+  </Text>
+  <Text
+    isBold={false}
+    style={
+      Array [
+        Object {
+          "color": "#999999",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+    testID="bookInfoValue"
+  >
+    Is Test
+  </Text>
+</View>
+`;

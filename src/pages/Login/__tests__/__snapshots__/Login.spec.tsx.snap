@@ -77,6 +77,7 @@ exports[`pages/Login should match snapshot 1`] = `
           },
         ]
       }
+      testID="headerTitle"
     >
       Books
     </Text>

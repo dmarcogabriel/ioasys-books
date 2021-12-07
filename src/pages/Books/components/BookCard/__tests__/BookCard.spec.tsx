@@ -60,14 +60,17 @@ describe('Books/components/BookCard', () => {
     fireEvent.press(bookContainerButton);
 
     expect(mockOnPress).toHaveBeenCalled();
-    expect(mockOnPressResult?.id).toBe('test');
-    expect(mockOnPressResult?.title).toBe('Test Book');
-    expect(mockOnPressResult?.authors[0]).toBe('Author 1');
-    expect(mockOnPressResult?.authors[1]).toBe('Author 2');
-    expect(mockOnPressResult?.pageCount).toBe(123);
-    expect(mockOnPressResult?.publisher).toBe('Tester');
-    expect(mockOnPressResult?.published).toBe(1992);
-    expect(mockOnPressResult?.imageUrl).toBe('test');
+    expect(mockOnPressResult).toBeTruthy();
+    if (mockOnPressResult) {
+      expect(mockOnPressResult.id).toBe('test');
+      expect(mockOnPressResult.title).toBe('Test Book');
+      expect(mockOnPressResult.authors[0]).toBe('Author 1');
+      expect(mockOnPressResult.authors[1]).toBe('Author 2');
+      expect(mockOnPressResult.pageCount).toBe(123);
+      expect(mockOnPressResult.publisher).toBe('Tester');
+      expect(mockOnPressResult.published).toBe(1992);
+      expect(mockOnPressResult.imageUrl).toBe('test');
+    }
   });
 
   it('should match snapshot', () => {

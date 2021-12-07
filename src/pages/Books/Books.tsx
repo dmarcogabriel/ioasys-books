@@ -10,12 +10,21 @@ import {Book} from '../../@types/book.interface';
 import api from '../../services/api';
 import {RootStacksParamsList} from '../../@types/rootStacksParamsList.interface';
 import {useUser, useErrorHandler} from '../../hooks';
+import {isEmpty, omitBy} from 'lodash';
+import {CATEGORIES} from './filtersParams';
 
 export interface ApiResponse {
   data: Book[];
   page: number;
   totalPages: number;
   totalItems: number;
+}
+
+interface ApiFiltersParams {
+  title?: string;
+  category?: string;
+  year?: string;
+  author?: string;
 }
 
 type BooksScreenProp = NativeStackNavigationProp<
@@ -32,16 +41,21 @@ export const Books = (): JSX.Element => {
   const {navigate} = useNavigation<BooksScreenProp>();
   const {logout} = useUser();
   const {handleError} = useErrorHandler();
+  const [filters, setFilters] = useState<ApiFiltersParams>({});
 
   const handleShowFilters = () => {
     setShowFilters(true);
   };
 
-  const handleCloseFilters = (data: any | null) => {
-    if (data) {
-      console.log(data);
+  const handleCloseFilters = async (filtersParams: ApiFiltersParams | null) => {
+    if (!isEmpty(filtersParams)) {
+      setFilters(oldfilters => ({...oldfilters, ...filtersParams}));
     }
     setShowFilters(false);
+  };
+
+  const handleSearch = async (term: string) => {
+    setFilters(oldFilters => ({...oldFilters, title: term}));
   };
 
   const handleOpenBookDetails = (book: Book) => {
@@ -49,16 +63,28 @@ export const Books = (): JSX.Element => {
   };
 
   const loadBooks = useCallback(
-    async (pageNumber: number) => {
+    async (pageNumber: number, filtersParams?: ApiFiltersParams) => {
       if (!isLoading) {
         setIsLoading(true);
         try {
-          const {data} = await api.get<ApiResponse>('books', {
-            params: {page: pageNumber},
+          console.log(
+            'FILTERS',
+            omitBy(filtersParams, filterParam => !filterParam),
+          );
+          const {data, config} = await api.get<ApiResponse>('books', {
+            params: {
+              page: pageNumber,
+              ...omitBy(filtersParams, filterParam => !filterParam),
+            },
           });
-          setBooks(oldBooks => [...oldBooks, ...data.data]);
-          setPage(oldPage => oldPage + 1);
-          setTotal(data.totalPages);
+          console.log('PARAMS', config.params);
+          if (isEmpty(filtersParams)) {
+            setBooks(oldBooks => [...oldBooks, ...data.data]);
+          } else {
+            setBooks([...data.data]);
+          }
+          setPage(pageNumber + 1);
+          setTotal(data.totalItems);
           setIsLoading(false);
         } catch (err: any) {
           if (err.response && err.response.status) {
@@ -79,9 +105,21 @@ export const Books = (): JSX.Element => {
   };
 
   useEffect(() => {
-    loadBooks(page);
+    let mounted = true;
+    if (mounted) {
+      loadBooks(page);
+    }
+    return () => {
+      mounted = false;
+    };
+  }, [loadBooks, page]);
+
+  useEffect(() => {
+    if (!isEmpty(filters)) {
+      loadBooks(1, filters);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [filters]);
 
   return (
     <SafeAreaView>
@@ -89,7 +127,7 @@ export const Books = (): JSX.Element => {
       <BooksHeader />
       <BooksContainer>
         <SearchSection>
-          <SearchInput onSearch={term => console.log(term)} />
+          <SearchInput onSearch={handleSearch} />
           <TouchableOpacity onPress={handleShowFilters}>
             <MIcon name="tune" size={24} />
           </TouchableOpacity>
@@ -106,10 +144,19 @@ export const Books = (): JSX.Element => {
             />
           )}
           ListFooterComponent={
-            <BooksFooter disabled={isLoading} onLoadMore={loadMoreBooks} />
+            <BooksFooter
+              disabled={isLoading || books.length >= total}
+              onLoadMore={loadMoreBooks}
+            />
           }
         />
-        <FiltersModal isVisible={showFilters} onClose={handleCloseFilters} />
+        <FiltersModal
+          yearOptions={['1998']}
+          authorOptions={['some author']}
+          categoryOptions={CATEGORIES}
+          isVisible={showFilters}
+          onClose={handleCloseFilters}
+        />
       </BooksContainer>
     </SafeAreaView>
   );

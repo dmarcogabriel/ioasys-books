@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import {FiltersChips, FiltersChipsProps} from '../FiltersChips';
+import {FiltersChips, FiltersChipsProps, Option} from '../FiltersChips';
 import {ThemeProvider} from '../../../../../contexts';
 import renderer from 'react-test-renderer';
 
@@ -24,12 +24,19 @@ const mockOnChange = jest.fn((option: string | null) => {
 const mockTitle = 'Test';
 const mockOptions = ['option 1', 'option 2', 'option 3'];
 
+const mockOptionsMapper = (options: string[]): Option[] => {
+  return options.map(option => ({
+    name: option,
+    value: option,
+  }));
+};
+
 describe('components/FiltersModal/components/FiltersChips', () => {
   it('should render correctly', () => {
     const {getByTestId} = render(
       <ComponentWrapper
         title={mockTitle}
-        options={mockOptions}
+        options={mockOptionsMapper(mockOptions)}
         onChange={mockOnChange}
         value=""
       />,
@@ -52,7 +59,7 @@ describe('components/FiltersModal/components/FiltersChips', () => {
       <ComponentWrapper
         value="option 2"
         title={mockTitle}
-        options={mockOptions}
+        options={mockOptionsMapper(mockOptions)}
         onChange={mockOnChange}
       />,
     );
@@ -70,7 +77,7 @@ describe('components/FiltersModal/components/FiltersChips', () => {
       <ComponentWrapper
         value=""
         title={mockTitle}
-        options={mockOptions}
+        options={mockOptionsMapper(mockOptions)}
         onChange={mockOnChange}
       />,
     );
@@ -86,7 +93,7 @@ describe('components/FiltersModal/components/FiltersChips', () => {
         .create(
           <ComponentWrapper
             title={mockTitle}
-            options={mockOptions}
+            options={mockOptionsMapper(mockOptions)}
             value="option 1"
             onChange={mockOnChange}
           />,

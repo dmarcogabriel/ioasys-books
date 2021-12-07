@@ -17,7 +17,7 @@ export const UserContext = createContext<UserContextValue>({
   logout: async () => {},
 });
 
-interface UserProviderProps {
+export interface UserProviderProps {
   children: React.ReactNode;
 }
 

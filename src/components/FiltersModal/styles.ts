@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
 });
 
-export const FiltersModalContainer = styled.View`
+export const FiltersModalContainer = styled.ScrollView`
   background: ${({theme}: ThemeProps) => theme.colors.light};
   border-radius: 4px;
   padding: 16px 16px 24px;
@@ -38,7 +38,7 @@ export const FilterButton = styled.TouchableOpacity`
   padding: 8px 20px;
   align-items: center;
   justify-content: center;
-  margin-top: 32px;
+  margin: 32px 0;
 `;
 
 export const FilterButtonText = styled.Text`

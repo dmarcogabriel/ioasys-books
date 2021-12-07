@@ -13,7 +13,7 @@ exports[`components/FiltersModal should match snapshot 1`] = `
   }
   testID="filtersModal"
 >
-  <View
+  <RCTScrollView
     style={
       Array [
         Object {
@@ -28,90 +28,15 @@ exports[`components/FiltersModal should match snapshot 1`] = `
       ]
     }
   >
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "flex-end",
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        collapsable={false}
-        focusable={true}
-        nativeID="animatedComponent"
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "borderColor": "#33333333",
-            "borderRadius": 100,
-            "borderStyle": "solid",
-            "borderWidth": 1,
-            "opacity": 1,
-            "paddingBottom": 9,
-            "paddingLeft": 9,
-            "paddingRight": 9,
-            "paddingTop": 9,
-          }
-        }
-        testID="closeButton"
-      >
-        <Text>
-          Icon
-        </Text>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "marginBottom": 16,
-            "marginLeft": 0,
-            "marginRight": 0,
-            "marginTop": 16,
-          },
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#333333",
-              "fontSize": 12,
-              "fontWeight": "bold",
-              "marginBottom": 4,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 4,
-            },
-          ]
-        }
-        testID="filtersChipsTitle"
-      >
-        Selecione a categoria
-      </Text>
+    <View>
       <View
         style={
           Array [
             Object {
-              "flexDirection": "row",
-              "marginBottom": 4,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 4,
+              "alignItems": "flex-end",
             },
           ]
         }
-        testID="filtersChipsOptions"
       >
         <View
           accessible={true}
@@ -127,388 +52,658 @@ exports[`components/FiltersModal should match snapshot 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "borderColor": "#333333",
-              "borderRadius": 20,
+              "borderColor": "#33333333",
+              "borderRadius": 100,
               "borderStyle": "solid",
               "borderWidth": 1,
-              "justifyContent": "center",
-              "marginBottom": 0,
-              "marginLeft": 4,
-              "marginRight": 4,
-              "marginTop": 0,
               "opacity": 1,
-              "paddingBottom": 8,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-              "paddingTop": 8,
+              "paddingBottom": 9,
+              "paddingLeft": 9,
+              "paddingRight": 9,
+              "paddingTop": 9,
             }
           }
-          testID="filtersChipsOptionButtonCategory1"
+          testID="closeButton"
         >
-          <Text
-            isSelected={false}
-            style={
-              Array [
-                Object {
-                  "color": "#333333",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="filtersChipsOptionTextCategory1"
-          >
-            Design
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          nativeID="animatedComponent"
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "borderColor": "#333333",
-              "borderRadius": 20,
-              "borderStyle": "solid",
-              "borderWidth": 1,
-              "justifyContent": "center",
-              "marginBottom": 0,
-              "marginLeft": 4,
-              "marginRight": 4,
-              "marginTop": 0,
-              "opacity": 1,
-              "paddingBottom": 8,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-              "paddingTop": 8,
-            }
-          }
-          testID="filtersChipsOptionButtonCategory2"
-        >
-          <Text
-            isSelected={false}
-            style={
-              Array [
-                Object {
-                  "color": "#333333",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="filtersChipsOptionTextCategory2"
-          >
-            UX Design
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          nativeID="animatedComponent"
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "borderColor": "#333333",
-              "borderRadius": 20,
-              "borderStyle": "solid",
-              "borderWidth": 1,
-              "justifyContent": "center",
-              "marginBottom": 0,
-              "marginLeft": 4,
-              "marginRight": 4,
-              "marginTop": 0,
-              "opacity": 1,
-              "paddingBottom": 8,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-              "paddingTop": 8,
-            }
-          }
-          testID="filtersChipsOptionButtonCategory3"
-        >
-          <Text
-            isSelected={false}
-            style={
-              Array [
-                Object {
-                  "color": "#333333",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="filtersChipsOptionTextCategory3"
-          >
-            UI Design
+          <Text>
+            Icon
           </Text>
         </View>
       </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "marginBottom": 16,
-            "marginLeft": 0,
-            "marginRight": 0,
-            "marginTop": 16,
-          },
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#333333",
-              "fontSize": 12,
-              "fontWeight": "bold",
-              "marginBottom": 4,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 4,
-            },
-          ]
-        }
-        testID="filtersChipsTitle"
-      >
-        Selecione o ano
-      </Text>
       <View
         style={
           Array [
             Object {
-              "flexDirection": "row",
-              "marginBottom": 4,
+              "marginBottom": 16,
               "marginLeft": 0,
               "marginRight": 0,
-              "marginTop": 4,
+              "marginTop": 16,
             },
           ]
         }
-        testID="filtersChipsOptions"
-      >
-        <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          nativeID="animatedComponent"
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "borderColor": "#333333",
-              "borderRadius": 20,
-              "borderStyle": "solid",
-              "borderWidth": 1,
-              "justifyContent": "center",
-              "marginBottom": 0,
-              "marginLeft": 4,
-              "marginRight": 4,
-              "marginTop": 0,
-              "opacity": 1,
-              "paddingBottom": 8,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-              "paddingTop": 8,
-            }
-          }
-          testID="filtersChipsOptionButtonYear1"
-        >
-          <Text
-            isSelected={false}
-            style={
-              Array [
-                Object {
-                  "color": "#333333",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="filtersChipsOptionTextYear1"
-          >
-            1998
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          nativeID="animatedComponent"
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "borderColor": "#333333",
-              "borderRadius": 20,
-              "borderStyle": "solid",
-              "borderWidth": 1,
-              "justifyContent": "center",
-              "marginBottom": 0,
-              "marginLeft": 4,
-              "marginRight": 4,
-              "marginTop": 0,
-              "opacity": 1,
-              "paddingBottom": 8,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-              "paddingTop": 8,
-            }
-          }
-          testID="filtersChipsOptionButtonYear2"
-        >
-          <Text
-            isSelected={false}
-            style={
-              Array [
-                Object {
-                  "color": "#333333",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="filtersChipsOptionTextYear2"
-          >
-            2000
-          </Text>
-        </View>
-        <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          nativeID="animatedComponent"
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#ffffff",
-              "borderColor": "#333333",
-              "borderRadius": 20,
-              "borderStyle": "solid",
-              "borderWidth": 1,
-              "justifyContent": "center",
-              "marginBottom": 0,
-              "marginLeft": 4,
-              "marginRight": 4,
-              "marginTop": 0,
-              "opacity": 1,
-              "paddingBottom": 8,
-              "paddingLeft": 20,
-              "paddingRight": 20,
-              "paddingTop": 8,
-            }
-          }
-          testID="filtersChipsOptionButtonYear3"
-        >
-          <Text
-            isSelected={false}
-            style={
-              Array [
-                Object {
-                  "color": "#333333",
-                  "fontSize": 12,
-                },
-              ]
-            }
-            testID="filtersChipsOptionTextYear3"
-          >
-            2002
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        collapsable={false}
-        focusable={true}
-        nativeID="animatedComponent"
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "borderColor": "#B22E6F",
-            "borderRadius": 20,
-            "borderStyle": "solid",
-            "borderWidth": 1,
-            "justifyContent": "center",
-            "marginTop": 32,
-            "opacity": 1,
-            "paddingBottom": 8,
-            "paddingLeft": 20,
-            "paddingRight": 20,
-            "paddingTop": 8,
-          }
-        }
-        testID="filterButton"
       >
         <Text
           style={
             Array [
               Object {
-                "color": "#B22E6F",
-                "fontSize": 16,
+                "color": "#333333",
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "marginBottom": 4,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 4,
               },
             ]
           }
+          testID="filtersChipsTitle"
         >
-          Filtrar
+          Selecione a categoria
         </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "marginBottom": 4,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 4,
+              },
+            ]
+          }
+          testID="filtersChipsOptions"
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#333333",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "marginBottom": 4,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 4,
+                "opacity": 1,
+                "paddingBottom": 8,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+                "paddingTop": 8,
+              }
+            }
+            testID="filtersChipsOptionButtonCategory1"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+              testID="filtersChipsOptionTextCategory1"
+            />
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#333333",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "marginBottom": 4,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 4,
+                "opacity": 1,
+                "paddingBottom": 8,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+                "paddingTop": 8,
+              }
+            }
+            testID="filtersChipsOptionButtonCategory2"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+              testID="filtersChipsOptionTextCategory2"
+            />
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#333333",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "marginBottom": 4,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 4,
+                "opacity": 1,
+                "paddingBottom": 8,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+                "paddingTop": 8,
+              }
+            }
+            testID="filtersChipsOptionButtonCategory3"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+              testID="filtersChipsOptionTextCategory3"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginBottom": 16,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "marginTop": 16,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "marginBottom": 4,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 4,
+              },
+            ]
+          }
+          testID="filtersChipsTitle"
+        >
+          Selecione o ano
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "marginBottom": 4,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 4,
+              },
+            ]
+          }
+          testID="filtersChipsOptions"
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#333333",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "marginBottom": 4,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 4,
+                "opacity": 1,
+                "paddingBottom": 8,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+                "paddingTop": 8,
+              }
+            }
+            testID="filtersChipsOptionButtonYear1"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+              testID="filtersChipsOptionTextYear1"
+            >
+              1992
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#333333",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "marginBottom": 4,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 4,
+                "opacity": 1,
+                "paddingBottom": 8,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+                "paddingTop": 8,
+              }
+            }
+            testID="filtersChipsOptionButtonYear2"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+              testID="filtersChipsOptionTextYear2"
+            >
+              1993
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#333333",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "marginBottom": 4,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 4,
+                "opacity": 1,
+                "paddingBottom": 8,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+                "paddingTop": 8,
+              }
+            }
+            testID="filtersChipsOptionButtonYear3"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+              testID="filtersChipsOptionTextYear3"
+            >
+              1994
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginBottom": 16,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "marginTop": 16,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#333333",
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "marginBottom": 4,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 4,
+              },
+            ]
+          }
+          testID="filtersChipsTitle"
+        >
+          Selecione o autor
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "marginBottom": 4,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 4,
+              },
+            ]
+          }
+          testID="filtersChipsOptions"
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#333333",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "marginBottom": 4,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 4,
+                "opacity": 1,
+                "paddingBottom": 8,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+                "paddingTop": 8,
+              }
+            }
+            testID="filtersChipsOptionButtonAuthor1"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+              testID="filtersChipsOptionTextAuthor1"
+            >
+              Author 1
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#333333",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "marginBottom": 4,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 4,
+                "opacity": 1,
+                "paddingBottom": 8,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+                "paddingTop": 8,
+              }
+            }
+            testID="filtersChipsOptionButtonAuthor2"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+              testID="filtersChipsOptionTextAuthor2"
+            >
+              Author 2
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            nativeID="animatedComponent"
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ffffff",
+                "borderColor": "#333333",
+                "borderRadius": 20,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "marginBottom": 4,
+                "marginLeft": 4,
+                "marginRight": 4,
+                "marginTop": 4,
+                "opacity": 1,
+                "paddingBottom": 8,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+                "paddingTop": 8,
+              }
+            }
+            testID="filtersChipsOptionButtonAuthor3"
+          >
+            <Text
+              isSelected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#333333",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+              testID="filtersChipsOptionTextAuthor3"
+            >
+              Author 3
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          nativeID="animatedComponent"
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "borderColor": "#B22E6F",
+              "borderRadius": 20,
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "justifyContent": "center",
+              "marginBottom": 32,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "marginTop": 32,
+              "opacity": 1,
+              "paddingBottom": 8,
+              "paddingLeft": 20,
+              "paddingRight": 20,
+              "paddingTop": 8,
+            }
+          }
+          testID="filterButton"
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#B22E6F",
+                  "fontSize": 16,
+                },
+              ]
+            }
+          >
+            Filtrar
+          </Text>
+        </View>
       </View>
     </View>
-  </View>
+  </RCTScrollView>
 </View>
 `;

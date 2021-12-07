@@ -7,9 +7,14 @@ import {
   ChipButtonText,
 } from './styles';
 
+export interface Option {
+  name: string;
+  value: string;
+}
+
 export interface FiltersChipsProps {
   title: string;
-  options: string[];
+  options: Option[];
   value: string | null;
   onChange: (option: string) => void;
   testID?: string;
@@ -38,12 +43,12 @@ export const FiltersChips = ({
           <ChipButton
             key={`${i}`}
             testID={`filtersChipsOptionButton${testID}${i + 1}`}
-            isSelected={isSelected(option)}
-            onPress={() => handleSelect(option)}>
+            isSelected={isSelected(option.value)}
+            onPress={() => handleSelect(option.value)}>
             <ChipButtonText
               testID={`filtersChipsOptionText${testID}${i + 1}`}
-              isSelected={isSelected(option)}>
-              {option}
+              isSelected={isSelected(option.value)}>
+              {option.name}
             </ChipButtonText>
           </ChipButton>
         ))}

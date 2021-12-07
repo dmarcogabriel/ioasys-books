@@ -9,36 +9,57 @@ import styles, {
   FilterButtonText,
   FiltersModalFooter,
 } from './styles';
-import {FiltersChips} from './components';
+import {FiltersChips, Option} from './components';
+import {CATEGORY} from './filtersDictionary';
 
 export interface FiltersModalProps {
   isVisible: boolean;
   onClose: (filters?: any) => void;
+  yearOptions: string[];
+  categoryOptions: string[];
+  authorOptions: string[];
 }
 
 interface FiltersState {
   category: string | null;
   year: string | null;
+  author: string | null;
 }
+
+type FieldName = 'category' | 'year' | 'author';
 
 export const FiltersModal = ({
   isVisible,
+  yearOptions = [],
+  categoryOptions = [],
+  authorOptions = [],
   onClose,
 }: FiltersModalProps): JSX.Element => {
   const [filters, setFilters] = useState<FiltersState>({
     category: null,
     year: null,
+    author: null,
   });
   const handleClose = (filtersData?: FiltersState) => {
     onClose(filtersData || null);
   };
 
-  const handleChange = (fieldName: 'category' | 'year') => (option: string) => {
+  const handleChange = (fieldName: FieldName) => (option: string) => {
     if (filters[fieldName] === option) {
       setFilters({...filters, [fieldName]: null});
     } else {
       setFilters({...filters, [fieldName]: option});
     }
+  };
+
+  const defineOptions = (
+    options: string[],
+    dictionary?: {[key: string]: string},
+  ): Option[] => {
+    return options.map(option => ({
+      name: dictionary ? dictionary[option] : option,
+      value: option,
+    }));
   };
 
   return (
@@ -58,16 +79,23 @@ export const FiltersModal = ({
         <FiltersChips
           testID="Category"
           title="Selecione a categoria"
-          options={['Design', 'UX Design', 'UI Design']}
+          options={defineOptions(categoryOptions, CATEGORY)}
           value={filters.category}
           onChange={handleChange('category')}
         />
         <FiltersChips
           testID="Year"
           title="Selecione o ano"
-          options={['1998', '2000', '2002']}
+          options={defineOptions(yearOptions)}
           value={filters.year}
           onChange={handleChange('year')}
+        />
+        <FiltersChips
+          testID="Author"
+          title="Selecione o autor"
+          options={defineOptions(authorOptions)}
+          value={filters.author}
+          onChange={handleChange('author')}
         />
         <FiltersModalFooter>
           <FilterButton

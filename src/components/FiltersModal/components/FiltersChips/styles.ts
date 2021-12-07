@@ -14,6 +14,7 @@ export const FiltersChipsTitle = styled.Text`
 
 export const FiltersChipsOptions = styled.View`
   flex-direction: row;
+  flex-wrap: wrap;
   margin: 4px 0;
 `;
 
@@ -22,7 +23,7 @@ interface ChipButtonProps {
 }
 
 export const ChipButton = styled.TouchableOpacity`
-  margin: 0 4px;
+  margin: 4px;
   ${({theme, isSelected}: ThemeProps & ChipButtonProps) => css`
     background: ${isSelected ? theme.colors.dark : theme.colors.light};
     border: 1px solid ${theme.colors.dark};

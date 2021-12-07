@@ -14,15 +14,18 @@ import {
 export interface BookCardProps {
   book: Book;
   onPress: (book: any) => void;
+  testID?: string;
 }
 
-export const BookCard = ({book, onPress}: BookCardProps) => {
+export const BookCard = ({
+  book,
+  onPress,
+  testID = 'bookContainerButton',
+}: BookCardProps) => {
   const handlePressBook = () => onPress(book);
 
   return (
-    <TouchableWithoutFeedback
-      testID="bookContainerButton"
-      onPress={handlePressBook}>
+    <TouchableWithoutFeedback testID={testID} onPress={handlePressBook}>
       <Card>
         <BookCardContent>
           <BookCardImage

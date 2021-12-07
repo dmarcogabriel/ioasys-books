@@ -28,5 +28,6 @@ export const RightComponentWrapper = styled.View`
 export default StyleSheet.create({
   input: {
     fontSize: 16,
+    color: '#fff',
   },
 });

@@ -1,23 +1,9 @@
 import React from 'react';
-import {render, fireEvent} from '@testing-library/react-native';
-import {Books} from '../Books';
+import {render} from '@testing-library/react-native';
+import {Books, ApiResponse} from '../Books';
 import {ThemeProvider} from '../../../contexts';
-// import {Book} from '../../../@types/book.interface';
 import renderer from 'react-test-renderer';
 import {Book} from '../../../@types/book.interface';
-
-const mockNavigate = jest.fn();
-jest.mock('@react-navigation/native', () => ({
-  useNavigation: () => ({
-    navigate: mockNavigate,
-  }),
-}));
-
-const ComponentWrapper = () => (
-  <ThemeProvider>
-    <Books />
-  </ThemeProvider>
-);
 
 const mockBooks: Book[] = [
   {
@@ -33,7 +19,7 @@ const mockBooks: Book[] = [
     isbn13: '426-3318368196',
     publisher: 'Pereira - Carvalho',
     published: 1998,
-    id: '60171639faf5de22b804a054',
+    id: '1',
   },
   {
     authors: ['Ladislau Carvalho Neto', 'Rafaela Silva Jr.'],
@@ -48,7 +34,7 @@ const mockBooks: Book[] = [
     isbn13: '869-5434807270',
     publisher: 'Carvalho - Nogueira',
     published: 2006,
-    id: '60171639faf5de22b804a074',
+    id: '2',
   },
   {
     authors: ['Sr. Marcela Reis', 'Natália Macedo', 'Ladislau Costa'],
@@ -63,24 +49,43 @@ const mockBooks: Book[] = [
     isbn13: '771-6431554229',
     publisher: 'Barros - Santos',
     published: 2013,
-    id: '60171639faf5de22b804a14b',
+    id: '3',
   },
 ];
+jest.mock('../../../services/api', () => ({
+  get: jest.fn(
+    (): ApiResponse => ({
+      data: mockBooks,
+      page: 1,
+      totalItems: 10,
+      totalPages: 1,
+    }),
+  ),
+}));
+
+const mockNavigate = jest.fn();
+jest.mock('@react-navigation/native', () => ({
+  useNavigation: () => ({
+    navigate: mockNavigate,
+  }),
+}));
+
+const ComponentWrapper = () => (
+  <ThemeProvider>
+    <Books />
+  </ThemeProvider>
+);
 
 describe('pages/Books', () => {
-  it('should pass on render book list', () => {
+  it('should pass on render book list', async () => {
     const {getByTestId} = render(<ComponentWrapper />);
 
     const bookList = getByTestId('bookList');
 
-    expect(bookList).toHaveProp('data', mockBooks);
+    expect(bookList).toBeDefined();
   });
 
-  // it('should match snapshot', () => {
-  //   expect(
-  //     renderer
-  //       .create(<ComponentWrapper book={mockBook} onPress={mockOnPress} />)
-  //       .toJSON(),
-  //   ).toMatchSnapshot();
-  // });
+  it('should match snapshot', () => {
+    expect(renderer.create(<ComponentWrapper />).toJSON()).toMatchSnapshot();
+  });
 });

@@ -8,6 +8,7 @@ import {LoginContainer, LoginButton, LoginButtonText} from './styles';
 import {TextInput} from './components';
 import api from '../../services/api';
 import {User} from '../../@types/user.interface';
+import Toast from 'react-native-toast-message';
 
 export interface LoginInput {
   email: string;
@@ -33,8 +34,16 @@ export const Login = (): JSX.Element => {
           formValues,
         );
         await login(data, headers.authorization);
-      } catch (error) {
-        console.log(error);
+      } catch (error: any) {
+        let errorMessage: string = '';
+        if (error.response && error.response.data) {
+          errorMessage = error.response.data.errors.message;
+        }
+        Toast.show({
+          position: 'bottom',
+          text1: errorMessage || 'Infelizmente, algo deu errado.',
+          type: 'error',
+        });
       }
     },
   });

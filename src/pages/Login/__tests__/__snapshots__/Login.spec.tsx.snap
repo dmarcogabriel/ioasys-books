@@ -125,6 +125,7 @@ exports[`pages/Login should match snapshot 1`] = `
         secureTextEntry={false}
         style={
           Object {
+            "color": "#fff",
             "fontSize": 16,
           }
         }
@@ -177,6 +178,7 @@ exports[`pages/Login should match snapshot 1`] = `
         secureTextEntry={true}
         style={
           Object {
+            "color": "#fff",
             "fontSize": 16,
           }
         }

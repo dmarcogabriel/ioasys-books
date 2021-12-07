@@ -1,86 +1,37 @@
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {TouchableOpacity, FlatList, StatusBar} from 'react-native';
 import MIcon from 'react-native-vector-icons/MaterialIcons';
 import {FiltersModal} from '../../components';
 import {SafeAreaView, BooksContainer, SearchSection} from './styles';
-import {BookCard, SearchInput, BooksHeader} from './components';
+import {BookCard, SearchInput, BooksHeader, BooksFooter} from './components';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Book} from '../../@types/book.interface';
+import api from '../../services/api';
+import {RootStacksParamsList} from '../../@types/rootStacksParamsList.interface';
+import {useUser, useErrorHandler} from '../../hooks';
 
-interface ApiResponse {
+export interface ApiResponse {
   data: Book[];
   page: number;
   totalPages: number;
   totalItems: number;
 }
 
-const MOCK_RESPONSE: ApiResponse = {
-  data: [
-    {
-      authors: ['Yango Moreira Filho', 'Norberto Santos'],
-      title: 'A dolorem itaque',
-      description:
-        'Commodi accusamus odio quia quia sequi laboriosam. Sequi fuga est consequatur maiores maiores blanditiis necessitatibus quia animi. Ut qui officiis. Atque aut a quia corrupti neque sint est quo consectetur.\n \rDoloremque sit in qui optio qui est. Temporibus reiciendis officiis totam ut nobis itaque odit. Maiores accusantium beatae omnis natus. Officia vitae provident animi totam incidunt magni nemo. Asperiores quod nihil quia itaque culpa natus cumque quidem.',
-      pageCount: 1042,
-      category: 'Literatura Estrangeira',
-      imageUrl: 'https://files-books.ioasys.com.br/Book-9.jpg',
-      language: 'Português',
-      isbn10: '3318368196',
-      isbn13: '426-3318368196',
-      publisher: 'Pereira - Carvalho',
-      published: 1998,
-      id: '60171639faf5de22b804a054',
-    },
-    {
-      authors: ['Ladislau Carvalho Neto', 'Rafaela Silva Jr.'],
-      title: 'A voluptate a',
-      description:
-        'Voluptates tenetur sit quo. Dignissimos nulla nulla. Saepe veniam quas et ab eaque. Reiciendis minima ea sunt ut quae.\n \rError cum rem ducimus. Eum iste modi. Impedit ipsam eum optio. Esse velit in ut ullam natus quae nesciunt omnis a. Asperiores facere explicabo.',
-      pageCount: 1342,
-      category: 'Ficção Científica',
-      imageUrl: 'https://files-books.ioasys.com.br/Book-0.jpg',
-      language: 'Inglês',
-      isbn10: '5434807270',
-      isbn13: '869-5434807270',
-      publisher: 'Carvalho - Nogueira',
-      published: 2006,
-      id: '60171639faf5de22b804a074',
-    },
-    {
-      authors: ['Sr. Marcela Reis', 'Natália Macedo', 'Ladislau Costa'],
-      title: 'Ab',
-      description:
-        'Quasi eaque tempore. Rerum voluptas rem quibusdam expedita numquam ut similique. Dolorum voluptas quidem sapiente atque voluptas nihil est ipsa. Quia id explicabo esse.\n \rLaborum sit qui. Distinctio labore qui omnis odio dignissimos aut nobis. Officia expedita aspernatur totam esse. Sit voluptatem quis hic. Sapiente tempora libero. Velit et porro non mollitia.',
-      pageCount: 924,
-      category: 'Manuscritos',
-      imageUrl: 'https://files-books.ioasys.com.br/Book-1.jpg',
-      language: 'Português',
-      isbn10: '6431554229',
-      isbn13: '771-6431554229',
-      publisher: 'Barros - Santos',
-      published: 2013,
-      id: '60171639faf5de22b804a14b',
-    },
-  ],
-  page: 1,
-  totalPages: 34,
-  totalItems: 674,
-};
-
 type BooksScreenProp = NativeStackNavigationProp<
-  {Books: undefined; BookDetails: {id: string}},
+  RootStacksParamsList,
   'BookDetails'
 >;
 
 export const Books = (): JSX.Element => {
-  const [books] = useState<Book[]>(MOCK_RESPONSE.data);
-  const [] = useState({
-    page: MOCK_RESPONSE.page,
-    total: MOCK_RESPONSE.totalPages,
-  });
+  const [books, setBooks] = useState<Book[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState<number>(1);
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const {navigate} = useNavigation<BooksScreenProp>();
+  const {logout} = useUser();
+  const {handleError} = useErrorHandler();
 
   const handleShowFilters = () => {
     setShowFilters(true);
@@ -96,6 +47,41 @@ export const Books = (): JSX.Element => {
   const handleOpenBookDetails = (book: Book) => {
     navigate('BookDetails', {id: book.id});
   };
+
+  const loadBooks = useCallback(
+    async (pageNumber: number) => {
+      if (!isLoading) {
+        setIsLoading(true);
+        try {
+          const {data} = await api.get<ApiResponse>('books', {
+            params: {page: pageNumber},
+          });
+          setBooks(oldBooks => [...oldBooks, ...data.data]);
+          setPage(oldPage => oldPage + 1);
+          setTotal(data.totalPages);
+          setIsLoading(false);
+        } catch (err: any) {
+          if (err.response && err.response.status) {
+            handleError(err.response.data, err.response.status, logout);
+          } else {
+            setIsLoading(false);
+          }
+        }
+      }
+    },
+    [isLoading, logout, handleError],
+  );
+
+  const loadMoreBooks = async () => {
+    if (books.length < total) {
+      await loadBooks(page);
+    }
+  };
+
+  useEffect(() => {
+    loadBooks(page);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <SafeAreaView>
@@ -113,8 +99,15 @@ export const Books = (): JSX.Element => {
           data={books}
           keyExtractor={item => item.id}
           renderItem={({item: book}) => (
-            <BookCard book={book} onPress={handleOpenBookDetails} />
+            <BookCard
+              testID={`bookCard${book.id}`}
+              book={book}
+              onPress={handleOpenBookDetails}
+            />
           )}
+          ListFooterComponent={
+            <BooksFooter disabled={isLoading} onLoadMore={loadMoreBooks} />
+          }
         />
         <FiltersModal isVisible={showFilters} onClose={handleCloseFilters} />
       </BooksContainer>

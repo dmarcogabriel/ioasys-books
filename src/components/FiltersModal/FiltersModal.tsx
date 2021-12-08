@@ -23,10 +23,10 @@ export interface FiltersModalProps {
 interface FiltersState {
   category: string | null;
   year: string | null;
-  author: string | null;
+  authors: string | null;
 }
 
-type FieldName = 'category' | 'year' | 'author';
+type FieldName = 'category' | 'year' | 'authors';
 
 export const FiltersModal = ({
   isVisible,
@@ -38,7 +38,7 @@ export const FiltersModal = ({
   const [filters, setFilters] = useState<FiltersState>({
     category: null,
     year: null,
-    author: null,
+    authors: null,
   });
   const handleClose = (filtersData?: FiltersState) => {
     onClose(filtersData || null);
@@ -94,8 +94,8 @@ export const FiltersModal = ({
           testID="Author"
           title="Selecione o autor"
           options={defineOptions(authorOptions)}
-          value={filters.author}
-          onChange={handleChange('author')}
+          value={filters.authors}
+          onChange={handleChange('authors')}
         />
         <FiltersModalFooter>
           <FilterButton

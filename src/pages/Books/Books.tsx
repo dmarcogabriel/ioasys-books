@@ -12,6 +12,7 @@ import {RootStacksParamsList} from '../../types/rootStacksParamsList.interface';
 import {useUser, useErrorHandler} from '../../hooks';
 import {isEmpty, omitBy} from 'lodash';
 import {CATEGORIES} from './filtersParams';
+import {removeDuplicates} from '../../utils/filterOptionsParser';
 
 export interface ApiResponse {
   data: Book[];
@@ -24,7 +25,7 @@ interface ApiFiltersParams {
   title?: string;
   category?: string;
   year?: string;
-  author?: string;
+  authors?: string;
 }
 
 type BooksScreenProp = NativeStackNavigationProp<
@@ -62,22 +63,33 @@ export const Books = (): JSX.Element => {
     navigate('BookDetails', {id: book.id});
   };
 
+  const defineYearFilters = (): string[] => {
+    if (isEmpty(books)) {
+      return [];
+    }
+    return removeDuplicates(books.map(book => `${book.published}`));
+  };
+
+  const defineAuthorFilters = (): string[] => {
+    if (isEmpty(books)) {
+      return [];
+    }
+    return removeDuplicates(books.map(book => book.authors[0]));
+  };
+
   const loadBooks = useCallback(
     async (pageNumber: number, filtersParams?: ApiFiltersParams) => {
       if (!isLoading) {
         setIsLoading(true);
         try {
-          console.log(
-            'FILTERS',
-            omitBy(filtersParams, filterParam => !filterParam),
-          );
+          console.log(omitBy(filtersParams, filterParam => !filterParam));
           const {data, config} = await api.get<ApiResponse>('books', {
             params: {
               page: pageNumber,
               ...omitBy(filtersParams, filterParam => !filterParam),
             },
           });
-          console.log('PARAMS', config.params);
+          console.log(config.params);
           if (isEmpty(filtersParams)) {
             setBooks(oldBooks => [...oldBooks, ...data.data]);
           } else {
@@ -105,14 +117,9 @@ export const Books = (): JSX.Element => {
   };
 
   useEffect(() => {
-    let mounted = true;
-    if (mounted) {
-      loadBooks(page);
-    }
-    return () => {
-      mounted = false;
-    };
-  }, [loadBooks, page]);
+    loadBooks(page);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (!isEmpty(filters)) {
@@ -151,8 +158,8 @@ export const Books = (): JSX.Element => {
           }
         />
         <FiltersModal
-          yearOptions={['1998']}
-          authorOptions={['some author']}
+          yearOptions={defineYearFilters()}
+          authorOptions={defineAuthorFilters()}
           categoryOptions={CATEGORIES}
           isVisible={showFilters}
           onClose={handleCloseFilters}

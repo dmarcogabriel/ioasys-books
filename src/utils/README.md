@@ -55,3 +55,30 @@ Used to delete data on device local storage.
 | Params | Type   | Description                 |
 |--------| ------ | --------------------------- | 
 | key    | string | A unique key to remove data |
+
+
+## FilterOptionsParser
+
+This is used to remove duplicated values from an array.
+
+### Usage
+
+```js
+import {removeDuplicates} from 'src/utils/filterOptionsParser';
+
+...
+const options = removeDuplicates(['1', '2', '1', '3']);
+console.log(options) // > '1', '2', '3'
+...
+```
+#### removeDuplicates
+
+Used to remove duplicated filter options.
+
+| Params | Type     | Description               |
+|--------| -------- | ------------------------- | 
+| key    | string[] | An array of string values |
+
+| Return | Type      | Description                       |
+| ------ | --------- | --------------------------------- |
+| data   | string[]  | An array string of unique values. |

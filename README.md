@@ -1,8 +1,4 @@
 # ioasys Books
-> Additional information or tagline
-
-A brief description of your project, what it is used for and how does life get
-awesome when someone starts to use it.
 
 An app built with React Native. It shows a list of Books that you can check it's
 details with searching and filtring features.

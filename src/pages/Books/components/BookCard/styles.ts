@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import {Text} from 'react-native-elements';
-import {ThemeProps} from '../../../../@types/theme.interface';
+import {ThemeProps} from '../../../../types/theme.interface';
 
 export const BookCardContent = styled.View`
   flex-direction: row;

@@ -2,7 +2,7 @@ import React from 'react';
 import {render, waitFor} from '@testing-library/react-native';
 import {BookDetails} from '../BookDetails';
 import {ThemeProvider} from '../../../contexts';
-import {Book} from '../../../@types/book.interface';
+import {Book} from '../../../types/book.interface';
 import renderer from 'react-test-renderer';
 
 const mockBook: Book = {

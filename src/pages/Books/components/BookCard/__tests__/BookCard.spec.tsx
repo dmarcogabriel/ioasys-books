@@ -2,7 +2,7 @@ import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import {BookCard, BookCardProps} from '../BookCard';
 import {ThemeProvider} from '../../../../../contexts';
-import {Book} from '../../../../../@types/book.interface';
+import {Book} from '../../../../../types/book.interface';
 import renderer from 'react-test-renderer';
 
 const ComponentWrapper = (props: BookCardProps) => (

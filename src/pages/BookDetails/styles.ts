@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {ThemeProps} from '../../@types/theme.interface';
+import {ThemeProps} from '../../types/theme.interface';
 import {Text} from 'react-native-elements';
 
 export const BookDetailsContainer = styled.ScrollView`

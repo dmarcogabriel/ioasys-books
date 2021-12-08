@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableWithoutFeedback, View} from 'react-native';
 import {Card} from 'react-native-elements';
-import {Book} from '../../../../@types/book.interface';
+import {Book} from '../../../../types/book.interface';
 import {
   BookCardContent,
   BookCardImage,

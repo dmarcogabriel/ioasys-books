@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useUser} from './hooks';
-import {RootStacksParamsList} from './@types/rootStacksParamsList.interface';
+import {RootStacksParamsList} from './types/rootStacksParamsList.interface';
 
 // Pages
 import {Books, Login, BookDetails} from './pages';

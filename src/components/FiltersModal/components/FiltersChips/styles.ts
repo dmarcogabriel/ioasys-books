@@ -1,5 +1,5 @@
 import styled, {css} from 'styled-components/native';
-import {ThemeProps} from '../../../../@types/theme.interface';
+import {ThemeProps} from '../../../../types/theme.interface';
 
 export const FiltersChipsContainer = styled.View`
   margin: 16px 0;

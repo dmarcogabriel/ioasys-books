@@ -9,11 +9,11 @@ import {
   BookDetailsTitle,
   BookDetailsAuthors,
 } from './styles';
-import {Book} from '../../@types/book.interface';
+import {Book} from '../../types/book.interface';
 import {BookInfo} from './components';
 import {StatusBar} from 'react-native';
 import api from '../../services/api';
-import {RootStacksParamsList} from '../../@types/rootStacksParamsList.interface';
+import {RootStacksParamsList} from '../../types/rootStacksParamsList.interface';
 import {useUser, useErrorHandler} from '../../hooks';
 
 export const BookDetails = () => {

@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
-import {ThemeProps} from '../../@types/theme.interface';
+import {ThemeProps} from '../../types/theme.interface';
 
 export default StyleSheet.create({
   modal: {

@@ -7,7 +7,7 @@ import BackgroundImage from './assets';
 import {LoginContainer, LoginButton, LoginButtonText} from './styles';
 import {TextInput} from './components';
 import api from '../../services/api';
-import {User} from '../../@types/user.interface';
+import {User} from '../../types/user.interface';
 import Toast from 'react-native-toast-message';
 
 export interface LoginInput {

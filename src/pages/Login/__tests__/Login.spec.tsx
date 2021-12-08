@@ -3,7 +3,7 @@ import {Login, LoginInput} from '../Login';
 import {render, fireEvent, waitFor} from '@testing-library/react-native';
 import {ThemeProvider} from '../../../contexts';
 import renderer from 'react-test-renderer';
-import {User} from '../../../@types/user.interface';
+import {User} from '../../../types/user.interface';
 
 interface ApiPostResponse {
   data: User;

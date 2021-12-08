@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import {Text} from 'react-native-elements';
-import {ThemeProps} from '../../../../@types/theme.interface';
+import {ThemeProps} from '../../../../types/theme.interface';
 import {StyleSheet} from 'react-native';
 
 export const TextInputContainer = styled.View`

@@ -1,5 +1,5 @@
 import React, {createContext, useState, useEffect, useCallback} from 'react';
-import {User} from '../@types/user.interface';
+import {User} from '../types/user.interface';
 import {storeData, removeData, getData} from '../utils/storage';
 import {AUTH_TOKEN_STORAGE_KEY} from '../constants';
 
